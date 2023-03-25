@@ -1,0 +1,16 @@
+<div class="container">
+    <mat-card class="example-card" *ngFor="let product of products">
+        <mat-card-header>
+          <mat-card-title>{{product.title}}</mat-card-title>
+        </mat-card-header>
+        <img class="image" mat-card-image src="{{product.image}}" />
+        <mat-card-content>
+          <p>Опис:</p>
+          <p>Price: {{product.price | currency:'UAH':'₴'}}</p>
+        </mat-card-content>
+        <mat-card-actions class="buttons">
+          <button class="button" mat-raised-button color="primary">До корзинки</button>
+          <button class="button" mat-raised-button color="primary" [routerLink]="['/product', product.id]"><mat-icon>info</mat-icon>Більше інйормації</button>
+        </mat-card-actions>
+      </mat-card>
+</div>
