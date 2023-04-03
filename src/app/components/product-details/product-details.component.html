@@ -9,7 +9,7 @@
             <div class="area">
                 <div>
                     <div class="fsection">{{product.title}}:{{product.price | currency:'UAH':'₴'}}</div>
-                    <div  class="ssection"><button mat-raised-button color="primary">До кошика</button></div>
+                    <div  class="ssection"><button (click)="toBusket(this.product)" mat-raised-button color="primary">До кошика</button></div>
                     <div></div>
                 </div>
             </div>

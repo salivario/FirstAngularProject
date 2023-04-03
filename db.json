@@ -1,35 +1,14 @@
 {
-    "products":[
-        {
-            "id":1,
-            "title": "Велик",
-            "price":5800,
-            "image":"/assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg",
-            "config":{
-                "wheels": 2,
-                "type": "спортивний"
-            }
-        },
-        {
-            "id":2,
-            "title": "Велосипед",
-            "price":6800,
-            "image":"/assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg",
-            "config":{
-                "wheels": 2,
-                "type": "спортивний"
-            }
-        },
-        {
-            "id":3,
-            "title": "Велосипедик",
-            "price":52000000,
-            "image":"/assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg",
-            "config":{
-                "wheels": 4,
-                "type": "горний"
-            }
-        }
-
-    ]
+  "products": [
+    {
+      "id": 3,
+      "title": "Велосипедик",
+      "price": 52000000,
+      "image": "/assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg",
+      "config": {
+        "wheels": 4,
+        "type": "горний"
+      }
+    }
+  ]
 }

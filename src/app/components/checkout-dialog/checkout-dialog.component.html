@@ -1,0 +1,25 @@
+<h2>Оформление заказа</h2>
+<form [formGroup]="form">
+  <mat-form-field>
+    <mat-label>ФИО</mat-label>
+    <input matInput formControlName="name">
+    <mat-error>Введите ФИО</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Адрес</mat-label>
+    <input matInput formControlName="address">
+    <mat-error>Введите адрес</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Доставка</mat-label>
+    <mat-select formControlName="delivery">
+      <mat-option value="delivery">Доставка на дом</mat-option>
+      <mat-option value="pickup">Самовывоз</mat-option>
+    </mat-select>
+    <mat-error>Выберите тип доставки</mat-error>
+  </mat-form-field>
+</form>
+<div class="dialog-buttons">
+  <button mat-raised-button (click)="dialogRef.close()">Отмена</button>
+  <button mat-raised-button color="primary" (click)="submit()">Оформить заказ</button>
+</div>

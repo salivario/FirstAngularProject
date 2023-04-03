@@ -1,0 +1,23 @@
+.container{
+    width: 100%;
+    margin: 0 auto 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: flex-start;
+}
+.example-card {
+    margin-right: 40px;
+    max-width: 400px;
+    background-color: rgb(236, 235, 238);
+  }
+  .image{
+    align-self: center;
+    max-width: 370px;
+  }
+  .button{
+    margin-right: 5px;
+  }
+  .buttons{
+    flex-wrap: wrap;
+  }

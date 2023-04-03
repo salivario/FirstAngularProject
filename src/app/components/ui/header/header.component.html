@@ -9,6 +9,7 @@
             <button class="toolbar button" mat-flat-button routerLink="">Головна</button>
             <button class="toolbar button" mat-flat-button routerLink="products">Товари</button>
             <button class="toolbar button" mat-flat-button routerLink="basket">Корзина</button>
+            <button class="toolbar button" mat-raised-button color="warn" (click)="openDialog()" *ngIf="canEdit">Додати позицію</button>
         </div>
+        
     </mat-toolbar-row>
-  </mat-toolbar>
