@@ -1,13 +1,19 @@
 <mat-list> 
     <mat-list-item class="matlistP"><h1  class="matlist">Найкращі велосипеди в УкраЇні</h1></mat-list-item>
     <mat-divider></mat-divider>
-    <mat-list-item class="matlistP"><h1 class="matlist">Тільки в магазині Salivario</h1></mat-list-item>
+    <mat-list-item class="matlistP"><h1 class="matlist">Тільки в магазині Vilka</h1></mat-list-item>
     <mat-divider></mat-divider>
-  <div class="tqblist">
-    <mat-tab-group>
-      <mat-tab label="Спортивні"> <img src="../../../assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg"> </mat-tab>
-      <mat-tab label="Гірські"> <img src="../../../assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg"> </mat-tab>
-      <mat-tab label="Інші"> <img src="../../../assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg"> </mat-tab>
-    </mat-tab-group>
-  </div>
+<div class="container">
+  <mat-card class="" *ngFor="let item of visited">
+    <mat-card-header>
+      <mat-card-title>{{item.title}}</mat-card-title>
+      <mat-card-subtitle>{{item.price | currency:'UAH':'₴'}}</mat-card-subtitle>
+    </mat-card-header>
+    <img class="image" mat-card-image src="{{item.image}}" alt="Photo of a bucicle">
+    <mat-card-actions>
+      <button mat-raised-button color="primary" [routerLink]="['/product', item.id]"><mat-icon>info</mat-icon>Більше інйормації</button>
+    </mat-card-actions>
+  </mat-card>
+</div>
+
   </mat-list>

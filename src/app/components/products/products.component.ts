@@ -5,6 +5,7 @@ import {AddToBusketService} from '../../services/add-to-busket.service'
 import { IProducts } from 'src/app/interfaces/products';
 import { MatDialog } from '@angular/material/dialog';
 import { SiteeditorComponent } from '../siteeditor/siteeditor.component';
+import { VisitedListService } from '../../services/visited-list.service'
 
 
 @Component({
@@ -15,7 +16,7 @@ import { SiteeditorComponent } from '../siteeditor/siteeditor.component';
 export class ProductsComponent implements OnInit, OnDestroy{
 products!: IProducts[];
 productsSubscription!: Subscription;
-constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService){}
+constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService, private VisitedListService: VisitedListService){}
   product!:IProducts;
   productSubscribtion!: Subscription;
   ngOnInit() { 
@@ -36,6 +37,10 @@ constructor(private ProductsService: ProductsService, private AddToBusketService
         this.products.splice(idx, 1)
       }
   }))
+  }
+  addVisit(product: IProducts){
+    console.log(product)
+    this.VisitedListService.addVisited(product)
   }
   ngOnDestroy(): void {
     if (this.productsSubscription) this.productsSubscription.unsubscribe();

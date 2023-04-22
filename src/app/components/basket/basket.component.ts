@@ -16,7 +16,7 @@ export class BasketComponent implements OnInit{
   product!:IProducts;
   products!: IProducts[];
   productsSubscription!: Subscription;
-  ngOnInit() { 
+    ngOnInit() { 
     this.products = this.AddToBusketService.getItems()
     }
     deleteItem(product: IProducts){
@@ -27,5 +27,5 @@ export class BasketComponent implements OnInit{
       this.dialogService.openCheckoutDialog().subscribe(result => {
         console.log(result);
       });
-  }
+    }
 }

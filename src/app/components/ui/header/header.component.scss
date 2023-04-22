@@ -2,6 +2,7 @@
     flex: 1 1 auto;
 }
 .toolbar{
+  margin-right: 5px;
   display: flex;
   align-items: center;
   &.button{
@@ -11,7 +12,17 @@
       }
     }
 }
-  
+.alternative{
+  display: none;
+}
+@media(max-width: 920px){
+  .nav{
+    display: none;
+  }
+  .alternative{
+    display: block;
+  }
+}
 .no-select {
   cursor: pointer;
   user-select: none;

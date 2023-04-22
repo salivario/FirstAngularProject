@@ -10,7 +10,7 @@
         </mat-card-content>
         <mat-card-actions class="buttons">
           <button class="button" (click)="toBusket(product)" mat-raised-button color="primary">До корзинки</button>
-          <button class="button" mat-raised-button color="primary" [routerLink]="['/product', product.id]"><mat-icon>info</mat-icon>Більше інйормації</button>
+          <button class="button" mat-raised-button color="primary" (click)='addVisit(product)' [routerLink]="['/product', product.id]"><mat-icon>info</mat-icon>Більше інйормації</button>
         </mat-card-actions>
         <button mat-button color="warn" [matMenuTriggerFor]="menu"><mat-icon>more_horiz</mat-icon></button>
             <mat-menu #menu="matMenu">

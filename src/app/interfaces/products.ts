@@ -3,8 +3,9 @@ export interface IProducts {
     title: string,
     price: number,
     image?: string,
-    config: any,
+    config: IProductsConfig,
 }
+
 export interface IProductsConfig{
     wheels: number,
     type: string,

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { SiteeditorComponent } from '../../siteeditor/siteeditor.component';
 import { ProductReturnerService } from 'src/app/services/product-returner.service';
 import { IProducts } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
+import { Observable, map } from 'rxjs';
+import { ClientReturnerService } from '../../../services/client-returner.service'
 
 
 @Component({
@@ -11,13 +13,20 @@ import { ProductsService } from 'src/app/services/products.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent {
-  constructor(public dialog: MatDialog, private ProductReturnerService: ProductReturnerService, private ProductsService: ProductsService){}
+export class HeaderComponent implements OnInit{
+  constructor(public dialog: MatDialog, private ProductReturnerService: ProductReturnerService, private ProductsService: ProductsService, private ClientReturnerService: ClientReturnerService)
+  {}
   products: IProducts[] = [];
+  clientsCount$!: Observable<number>;
+  ngOnInit() {
+    this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
+      map(clients => clients.length)
+    );
+  }
   openDialog(): void {
     let dialogConfig = new MatDialogConfig();
     dialogConfig.width = '460px';
-    dialogConfig.height = '300px';
+    dialogConfig.height = '380px';
     dialogConfig.disableClose = true;
     dialogConfig.data = this.ProductReturnerService.getProduct();
     const dialogRef = this.dialog.open(SiteeditorComponent, dialogConfig)

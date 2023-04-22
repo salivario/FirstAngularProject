@@ -21,3 +21,8 @@
   .buttons{
     flex-wrap: wrap;
   }
+  @media(max-width: 970px){
+    .image{
+      display: none;
+    }
+  }

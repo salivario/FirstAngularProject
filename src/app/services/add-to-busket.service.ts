@@ -7,7 +7,7 @@ import { IProducts } from '../interfaces/products';
 export class AddToBusketService {
   busket: IProducts[] = [];
   constructor() { 
-    const storedItems = sessionStorage.getItem('busketItems');
+    const storedItems = localStorage.getItem('busketItems');
   if (storedItems) {
     this.busket = JSON.parse(storedItems);
   }}
@@ -32,6 +32,6 @@ export class AddToBusketService {
     return this.busket;
   };
   private saveToStorage() {
-    sessionStorage.setItem('busketItems', JSON.stringify(this.busket));
+    localStorage.setItem('busketItems', JSON.stringify(this.busket));
   }
 }

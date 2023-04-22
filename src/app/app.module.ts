@@ -25,6 +25,8 @@ import {MatListModule} from '@angular/material/list';
 import { CheckoutDialogComponent } from './components/checkout-dialog/checkout-dialog.component';
 import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
+import { ClientsComponent } from './components/clients/clients.component';
+import {MatBadgeModule} from '@angular/material/badge';
 
 @NgModule({
   declarations: [
@@ -38,6 +40,7 @@ import {MatTabsModule} from '@angular/material/tabs';
     NotfoundComponent,
     SiteeditorComponent,
     CheckoutDialogComponent,
+    ClientsComponent,
     
   ],
   imports: [
@@ -56,7 +59,8 @@ import {MatTabsModule} from '@angular/material/tabs';
     MatDividerModule,
     MatListModule,
     MatSelectModule,
-    MatTabsModule
+    MatTabsModule,
+    MatBadgeModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,9 +1,24 @@
 <h2>Оформление заказа</h2>
 <form [formGroup]="form">
   <mat-form-field>
-    <mat-label>ФИО</mat-label>
+    <mat-label>Имя</mat-label>
     <input matInput formControlName="name">
-    <mat-error>Введите ФИО</mat-error>
+    <mat-error>Введите имя</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Фамилия</mat-label>
+    <input matInput formControlName="surname">
+    <mat-error>Введите фамилию</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Номер телефона</mat-label>
+    <input matInput formControlName="phone">
+    <mat-error>Введите номер телефона</mat-error>
+  </mat-form-field>
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email">
+    <mat-error>Введите email адрес</mat-error>
   </mat-form-field>
   <mat-form-field>
     <mat-label>Адрес</mat-label>
@@ -13,8 +28,8 @@
   <mat-form-field>
     <mat-label>Доставка</mat-label>
     <mat-select formControlName="delivery">
-      <mat-option value="delivery">Доставка на дом</mat-option>
-      <mat-option value="pickup">Самовывоз</mat-option>
+      <mat-option value="Доставка на дом">Доставка на дом</mat-option>
+      <mat-option value="Самовывоз">Самовывоз</mat-option>
     </mat-select>
     <mat-error>Выберите тип доставки</mat-error>
   </mat-form-field>

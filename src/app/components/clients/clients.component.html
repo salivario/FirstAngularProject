@@ -1,0 +1,20 @@
+<div class="container" >
+    <div *ngFor="let request of requests">
+        <div class="request">
+            <div class="clientInf">
+                <p>Ім'я: {{request.name}}</p>
+                <p>Фамілія: {{request.surname}}</p>
+                <p>Пошта: {{request.email}}</p>
+                <p>Телелфон: {{request.phone}}</p>
+                <p>Доставка: {{request.delivery}}</p>
+                <button mat-raised-button color="primary" mat-button [matMenuTriggerFor]="menu">Корзина</button>
+                <mat-menu #menu="matMenu">
+                    <div *ngFor="let good of request.userGoods">
+                        <button mat-menu-item><a [routerLink]="['/product', good.id]">Товар: id{{good.id}}, {{good.title}}</a></button>
+                    </div>
+                </mat-menu>
+    
+            </div>
+            <div (click)="deleteClient(request.id)" class="deleteBtn"><a color="warn" mat-flat-button target="_blank">Видалити</a></div>
+        </div>
+      </div></div>
