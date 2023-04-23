@@ -11,7 +11,6 @@ import { BasketComponent } from './components/basket/basket.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { BaseComponent } from './components/base/base.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -27,6 +26,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatTabsModule} from '@angular/material/tabs';
 import { ClientsComponent } from './components/clients/clients.component';
 import {MatBadgeModule} from '@angular/material/badge';
+import { SearchPipePipe } from './pipes/search-pipe.pipe';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -37,10 +38,10 @@ import {MatBadgeModule} from '@angular/material/badge';
     BasketComponent,
     ProductDetailsComponent,
     BaseComponent,
-    NotfoundComponent,
     SiteeditorComponent,
     CheckoutDialogComponent,
     ClientsComponent,
+    SearchPipePipe,
     
   ],
   imports: [
@@ -60,7 +61,8 @@ import {MatBadgeModule} from '@angular/material/badge';
     MatListModule,
     MatSelectModule,
     MatTabsModule,
-    MatBadgeModule
+    MatBadgeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

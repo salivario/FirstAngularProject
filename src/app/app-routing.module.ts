@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { BaseComponent } from './components/base/base.component';
 import { BasketComponent } from './components/basket/basket.component';
-import { NotfoundComponent } from './components/notfound/notfound.component';
 import { ProductDetailsComponent } from './components/product-details/product-details.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ProductResolver } from './services/product.resolver';
@@ -16,7 +15,6 @@ const routes: Routes = [
   {path: 'Clients', component: ClientsComponent},
 
 
-  {path: '**', component: NotfoundComponent},
 ];
 
 @NgModule({

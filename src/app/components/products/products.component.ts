@@ -14,6 +14,8 @@ import { VisitedListService } from '../../services/visited-list.service'
   styleUrls: ['./products.component.scss']
 })
 export class ProductsComponent implements OnInit, OnDestroy{
+searchProducts!: IProducts[];
+searchText!: string;
 products!: IProducts[];
 productsSubscription!: Subscription;
 constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService, private VisitedListService: VisitedListService){}
@@ -39,9 +41,14 @@ constructor(private ProductsService: ProductsService, private AddToBusketService
   }))
   }
   addVisit(product: IProducts){
-    console.log(product)
-    this.VisitedListService.addVisited(product)
+    const foundProduct = this.products.find(p => p.id === product.id);
+    if (foundProduct) {
+      console.log(product)
+      this.VisitedListService.addVisited(product)
+    } else {
+      return
   }
+}
   ngOnDestroy(): void {
     if (this.productsSubscription) this.productsSubscription.unsubscribe();
   }

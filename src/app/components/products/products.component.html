@@ -1,5 +1,12 @@
-<div class="container">
-    <mat-card class="example-card" *ngFor="let product of products">
+<div>
+  <div>
+    <mat-form-field appearance="fill" class="form">
+      <mat-label><mat-icon>search</mat-icon>Пошук</mat-label>
+      <input matInput [(ngModel)]="searchText">
+    </mat-form-field>
+  </div>
+  <div class="container">
+    <mat-card class="example-card" *ngFor="let product of products | searchPipe:searchText">
         <mat-card-header>
           <mat-card-title>{{product.title}}</mat-card-title>
         </mat-card-header>
@@ -17,4 +24,5 @@
               <button mat-menu-item *ngIf="canEdit" (click)="deleteItem(product.id)">Видалити</button>
             </mat-menu>
       </mat-card>
+</div>
 </div>
