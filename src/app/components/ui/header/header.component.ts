@@ -6,6 +6,7 @@ import { IProducts } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
 import { Observable, map } from 'rxjs';
 import { ClientReturnerService } from '../../../services/client-returner.service'
+import { IsadminService } from 'src/app/services/isadmin.service';
 
 
 @Component({
@@ -14,14 +15,19 @@ import { ClientReturnerService } from '../../../services/client-returner.service
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit{
-  constructor(public dialog: MatDialog, private ProductReturnerService: ProductReturnerService, private ProductsService: ProductsService, private ClientReturnerService: ClientReturnerService)
+  constructor(public dialog: MatDialog, private ProductReturnerService: ProductReturnerService, private ProductsService: ProductsService, private ClientReturnerService: ClientReturnerService,
+    private isAdminservice: IsadminService)
   {}
   products: IProducts[] = [];
   clientsCount$!: Observable<number>;
+  isAdmin!: boolean;
   ngOnInit() {
-    this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
-      map(clients => clients.length)
-    );
+    this.isAdmin  = this.isAdminservice.getRights();
+    if(this.isAdmin){
+      this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
+        map(clients => clients.length)
+        );
+    }
   }
   openDialog(): void {
     let dialogConfig = new MatDialogConfig();
@@ -39,5 +45,5 @@ export class HeaderComponent implements OnInit{
     console.log(this.products)
     this.ProductsService.postProduct(data).subscribe((data)=> this.products.push(data))
   }
-  canEdit = true;
+  
 }

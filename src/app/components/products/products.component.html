@@ -21,7 +21,7 @@
         </mat-card-actions>
         <button mat-button color="warn" [matMenuTriggerFor]="menu"><mat-icon>more_horiz</mat-icon></button>
             <mat-menu #menu="matMenu">
-              <button mat-menu-item *ngIf="canEdit" (click)="deleteItem(product.id)">Видалити</button>
+              <button mat-menu-item *ngIf="isAmin" (click)="deleteItem(product.id)">Видалити</button>
             </mat-menu>
       </mat-card>
 </div>

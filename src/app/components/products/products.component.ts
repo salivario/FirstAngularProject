@@ -6,6 +6,7 @@ import { IProducts } from 'src/app/interfaces/products';
 import { MatDialog } from '@angular/material/dialog';
 import { SiteeditorComponent } from '../siteeditor/siteeditor.component';
 import { VisitedListService } from '../../services/visited-list.service'
+import { IsadminService } from 'src/app/services/isadmin.service';
 
 
 @Component({
@@ -18,10 +19,12 @@ searchProducts!: IProducts[];
 searchText!: string;
 products!: IProducts[];
 productsSubscription!: Subscription;
-constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService, private VisitedListService: VisitedListService){}
+constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService, private VisitedListService: VisitedListService, private isAdminservice: IsadminService){}
   product!:IProducts;
+  isAmin!: boolean;
   productSubscribtion!: Subscription;
   ngOnInit() { 
+    this.isAmin = this.isAdminservice.getRights();
     this.productsSubscription = this.ProductsService.getProducts().subscribe((data)=>{
       this.products = data
     })
@@ -30,7 +33,7 @@ constructor(private ProductsService: ProductsService, private AddToBusketService
     console.log(product)
     this.AddToBusketService.addItem(product);
   }
-  canEdit: boolean = true;
+  
   deleteItem(id: number){
     console.log(id)
     this.ProductsService.deleteProduct(id).subscribe(()=> this.products.find( (item)=>{

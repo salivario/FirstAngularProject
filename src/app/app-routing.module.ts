@@ -6,13 +6,15 @@ import { ProductDetailsComponent } from './components/product-details/product-de
 import { ProductsComponent } from './components/products/products.component';
 import { ProductResolver } from './services/product.resolver';
 import { ClientsComponent } from './components/clients/clients.component';
+import { ClientGuard } from './guerds/client.guard';
+
 
 const routes: Routes = [
   {path: '', component: BaseComponent},
   {path: 'products', component: ProductsComponent},
   {path: 'product/:id', component: ProductDetailsComponent, resolve: {data: ProductResolver}},
   {path: 'basket', component: BasketComponent},
-  {path: 'Clients', component: ClientsComponent},
+  {path: 'Clients', component: ClientsComponent, canActivate: [ClientGuard]},
 
 
 ];

@@ -1,3 +1,4 @@
+
 {
   "products": [
     {
@@ -9,16 +10,6 @@
         "wheels": 4,
         "type": "горний"
       }
-    },
-    {
-      "title": "123123",
-      "price": "",
-      "image": "/assets/images/gt-aggressor-sport-black-velokratia-1280x960.jpg",
-      "config": {
-        "wheels": "",
-        "type": ""
-      },
-      "id": 4
     }
   ],
   "clients": [
