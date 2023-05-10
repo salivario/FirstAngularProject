@@ -28,6 +28,7 @@ import { ClientsComponent } from './components/clients/clients.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import { SearchPipePipe } from './pipes/search-pipe.pipe';
 import { FormsModule } from '@angular/forms';
+import { AutorizationComponent } from './components/autorization/autorization.component';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,7 @@ import { FormsModule } from '@angular/forms';
     CheckoutDialogComponent,
     ClientsComponent,
     SearchPipePipe,
+    AutorizationComponent,
     
   ],
   imports: [

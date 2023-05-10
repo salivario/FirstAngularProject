@@ -1,0 +1,5 @@
+<form [formGroup]="form" (submit)="SubmitForm()" style="display: flex; flex-direction: column; justify-content: center; width: 100%;">
+    <input formControlName="email" class="form" type="email" style=" align-self: center; margin-bottom: 40px; margin-top: 40px; height: 50px; border: 2px solid black; padding-left: 15px;" placeholder="Email">
+    <input formControlName="password" class="form" type="password" style=" align-self: center; margin-bottom: 40px; margin-top: 40px; height: 50px; border: 2px solid black; padding-left: 15px;" placeholder="password">
+    <input type="submit" [disabled]="form.invalid" class="submit" style=" align-self: center; height: 50px; border: 2px solid black; font-size: 19px;" value="submit">
+</form>

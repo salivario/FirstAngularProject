@@ -7,6 +7,7 @@ import { ProductsComponent } from './components/products/products.component';
 import { ProductResolver } from './services/product.resolver';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientGuard } from './guerds/client.guard';
+import { AutorizationComponent } from './components/autorization/autorization.component';
 
 
 const routes: Routes = [
@@ -15,7 +16,7 @@ const routes: Routes = [
   {path: 'product/:id', component: ProductDetailsComponent, resolve: {data: ProductResolver}},
   {path: 'basket', component: BasketComponent},
   {path: 'Clients', component: ClientsComponent, canActivate: [ClientGuard]},
-
+  {path: 'autorization', component: AutorizationComponent}
 
 ];
 

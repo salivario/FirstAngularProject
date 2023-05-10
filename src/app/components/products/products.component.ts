@@ -1,5 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { Subscriber, Subscription } from 'rxjs';
+import { Observable, Subscriber, Subscription } from 'rxjs';
 import {ProductsService} from '../../services/products.service'
 import {AddToBusketService} from '../../services/add-to-busket.service'
 import { IProducts } from 'src/app/interfaces/products';
@@ -21,10 +21,10 @@ products!: IProducts[];
 productsSubscription!: Subscription;
 constructor(private ProductsService: ProductsService, private AddToBusketService: AddToBusketService, private VisitedListService: VisitedListService, private isAdminservice: IsadminService){}
   product!:IProducts;
-  isAmin!: boolean;
+  isAdmin$!: Observable<boolean>;
   productSubscribtion!: Subscription;
   ngOnInit() { 
-    this.isAmin = this.isAdminservice.getRights();
+    this.isAdmin$ = this.isAdminservice.getRights();
     this.productsSubscription = this.ProductsService.getProducts().subscribe((data)=>{
       this.products = data
     })

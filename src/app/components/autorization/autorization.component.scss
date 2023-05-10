@@ -1,0 +1,19 @@
+.submit{
+    background-color: rgb(255, 255, 255);
+    width: 470px;
+}
+
+.submit:hover{
+    background-color: red;
+}
+.form{
+    width: 450px;
+}
+@media(max-width: 920px){
+    .form{
+        width: 200px;
+    }
+    .submit{
+        width: 220px;
+    }
+}

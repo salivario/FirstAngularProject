@@ -4,9 +4,11 @@ import { SiteeditorComponent } from '../../siteeditor/siteeditor.component';
 import { ProductReturnerService } from 'src/app/services/product-returner.service';
 import { IProducts } from 'src/app/interfaces/products';
 import { ProductsService } from 'src/app/services/products.service';
-import { Observable, map } from 'rxjs';
+import { Observable, Subscription, map } from 'rxjs';
 import { ClientReturnerService } from '../../../services/client-returner.service'
 import { IsadminService } from 'src/app/services/isadmin.service';
+
+
 
 
 @Component({
@@ -20,14 +22,21 @@ export class HeaderComponent implements OnInit{
   {}
   products: IProducts[] = [];
   clientsCount$!: Observable<number>;
-  isAdmin!: boolean;
+  isAdmin$!: Observable<boolean>;
+  isAdminSubscribtion!: Subscription;
+  islog$!: Observable<boolean>;
+  islogSubscribtion!: Subscription;
   ngOnInit() {
-    this.isAdmin  = this.isAdminservice.getRights();
-    if(this.isAdmin){
+    this.islog$ = this.isAdminservice.getLog();
+    this.isAdmin$ = this.isAdminservice.getRights();
+
+    if(this.isAdmin$){
       this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
         map(clients => clients.length)
         );
     }
+    console.log(this.islog$)
+    console.log(this.isAdmin$)
   }
   openDialog(): void {
     let dialogConfig = new MatDialogConfig();
