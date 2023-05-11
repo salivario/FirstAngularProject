@@ -18,9 +18,12 @@ export class ClientGuard implements CanActivate {
     if (isAdmin) {
       return true;
     }
+    else{
+      return this.router.createUrlTree(['']);
+    }
 
     
-    return this.router.createUrlTree(['']);
+    
   }
   
 }

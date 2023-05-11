@@ -7,8 +7,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class IsadminService {
 
   constructor() { }
-  private isLog$ = new BehaviorSubject<boolean>(true);
-  private isAdmin$ = new BehaviorSubject<boolean>(false);
+  isLog$ = new BehaviorSubject<boolean>(false);
+  isAdmin$ = new BehaviorSubject<boolean>(false);
   getRights(): Observable<boolean> {
     return this.isAdmin$.asObservable();
   }
@@ -16,10 +16,10 @@ export class IsadminService {
     return this.isLog$.asObservable();
   }
   setRights(result: boolean) {
-    this.isAdmin$= new BehaviorSubject<boolean>(result)
+    this.isAdmin$.next(result);
   }
   setLog(result: boolean){
-    return this.isLog$ = new BehaviorSubject<boolean>(result)
+    this.isLog$.next(result);
   }
   
 

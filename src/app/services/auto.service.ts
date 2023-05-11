@@ -9,11 +9,11 @@ export class AutoService {
 
   constructor(private route: Router, private IsadminService: IsadminService) { }
   setToken(token: string){
-    sessionStorage.setItem('token', token)
+    localStorage.setItem('token', token); 
   }
 
   getToken(){
-    return localStorage.getItem('token')
+    return localStorage.getItem('token'); 
   }
 
   isAuto(){
@@ -22,13 +22,14 @@ export class AutoService {
   login(userInf: {email: string, password: string}): Observable<string | boolean>{
     if(userInf.email === 'user@gmail.com' && userInf.password === '123123qwe'){
       this.setToken('qwe121e12e1d2f')
-      this.IsadminService.setLog(false)
+      this.IsadminService.setLog(true)
       this.IsadminService.setRights(false)
     }
     if(userInf.email === 'admin@gmail.com' && userInf.password === '123123qwe'){
       this.setToken('qwe121e12e1d2qwdasdaf')
-      this.IsadminService.setLog(false)
+      this.IsadminService.setLog(true)
       this.IsadminService.setRights(true)
+      
     }
     return throwError(()=> new Error('Failed Login'))
   }

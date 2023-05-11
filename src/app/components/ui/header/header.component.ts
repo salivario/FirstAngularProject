@@ -23,20 +23,25 @@ export class HeaderComponent implements OnInit{
   products: IProducts[] = [];
   clientsCount$!: Observable<number>;
   isAdmin$!: Observable<boolean>;
-  isAdminSubscribtion!: Subscription;
   islog$!: Observable<boolean>;
-  islogSubscribtion!: Subscription;
+
+
+  
   ngOnInit() {
     this.islog$ = this.isAdminservice.getLog();
     this.isAdmin$ = this.isAdminservice.getRights();
 
-    if(this.isAdmin$){
-      this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
-        map(clients => clients.length)
-        );
-    }
-    console.log(this.islog$)
-    console.log(this.isAdmin$)
+    this.islog$.subscribe(data => console.log(data));
+    this.isAdmin$.subscribe(data => {console.log(data)
+      if(this.isAdmin$){
+        this.clientsCount$ = this.ClientReturnerService.getRequests().pipe(
+          map(clients => clients.length)
+          );
+      }
+    });
+
+    
+    
   }
   openDialog(): void {
     let dialogConfig = new MatDialogConfig();

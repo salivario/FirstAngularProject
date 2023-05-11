@@ -7,7 +7,7 @@
         <span class="example-spacer"></span>
         <div class="toolbar no-select nav">
             <button class="toolbar button"  mat-flat-button routerLink=""><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Головна</button>
-            <button class="toolbar button" *ngIf="islog$ | async" mat-flat-button routerLink="autorization"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>Авторизація</button>
+            <button class="toolbar button" *ngIf="!(islog$ | async)" mat-flat-button routerLink="autorization"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>Авторизація</button>
             <button class="toolbar button" mat-flat-button routerLink="products"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart"></mat-icon>Товари</button>
             <button class="toolbar button" mat-flat-button routerLink="basket"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_basket"></mat-icon>Корзина</button>
             <button class="toolbar button" mat-raised-button color="warn" (click)="openDialog()" *ngIf="isAdmin$ | async"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="add"></mat-icon>Додати позицію</button>
@@ -16,7 +16,7 @@
         <div class="alternative">
             <button mat-button [matMenuTriggerFor]="menu"><mat-icon>menu</mat-icon></button>
                 <mat-menu #menu="matMenu">
-                    <button class="toolbar button" *ngIf="islog$ | async" routerLink="autorization" mat-flat-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>Авторизація</button>
+                    <button class="toolbar button" *ngIf="!(islog$ | async)" routerLink="autorization" mat-flat-button><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="login"></mat-icon>Авторизація</button>
                     <button class="toolbar button" mat-flat-button routerLink=""><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>Головна</button>
                     <button class="toolbar button" mat-flat-button routerLink="products"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_cart"></mat-icon>Товари</button>
                     <button class="toolbar button" mat-flat-button routerLink="basket"><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="shopping_basket"></mat-icon>Корзина</button>
