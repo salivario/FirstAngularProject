@@ -13,13 +13,14 @@ export class ClientGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
 
-    const isAdmin = this.IsadminService.getRights();
+      const isAdmin$: Observable<boolean> = this.IsadminService.getRights();
 
-    if (isAdmin) {
+
+    if (isAdmin$) {
       return true;
     }
     else{
-      return this.router.createUrlTree(['']);
+      return this.router.navigate(['']);
     }
 
     

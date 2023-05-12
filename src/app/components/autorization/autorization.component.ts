@@ -14,6 +14,7 @@ import { IsadminService } from 'src/app/services/isadmin.service';
 export class AutorizationComponent implements OnInit,OnDestroy{
   form!: FormGroup;
   islog$!: Observable<boolean>;
+  incorrect: boolean = false;
   constructor(private formBuilder: FormBuilder, private autoService: AutoService, private route: Router, private IsadminService: IsadminService){
 
   }
@@ -28,6 +29,10 @@ export class AutorizationComponent implements OnInit,OnDestroy{
     this.IsadminService.getLog().subscribe(isLoggedIn => {
       if(isLoggedIn){
         this.route.navigate(['/']);
+      }
+      else{
+        this.incorrect = true;
+        this.form.reset();
       }
     });
   }

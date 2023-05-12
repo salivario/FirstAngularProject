@@ -2,13 +2,14 @@ import { Injectable } from '@angular/core';
 import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable, Subscription } from 'rxjs';
 import { IsadminService } from '../services/isadmin.service';
+
 @Injectable({
   providedIn: 'root'
 })
-export class IslogGuard implements CanActivate {
+export class LogedGuard implements CanActivate {
   isLog!: boolean;
   isLogSubscription!: Subscription;
-  constructor(private IsadminService:IsadminService, private router: Router){}
+  constructor(private IsadminService: IsadminService, private router: Router){}
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
@@ -21,10 +22,9 @@ export class IslogGuard implements CanActivate {
         return true;
       }
       else{
-        return this.router.navigate(['autorization']);
+        return this.router.navigate(['']);
       }
   }
 
-  
   
 }

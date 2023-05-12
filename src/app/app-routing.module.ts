@@ -8,13 +8,14 @@ import { ProductResolver } from './services/product.resolver';
 import { ClientsComponent } from './components/clients/clients.component';
 import { ClientGuard } from './guerds/client.guard';
 import { AutorizationComponent } from './components/autorization/autorization.component';
+import { IslogGuard } from './guerds/islog.guard';
 
 
 const routes: Routes = [
   {path: '', component: BaseComponent},
-  {path: 'products', component: ProductsComponent},
+  {path: 'products', component: ProductsComponent, canActivate: [IslogGuard]},
   {path: 'product/:id', component: ProductDetailsComponent, resolve: {data: ProductResolver}},
-  {path: 'basket', component: BasketComponent},
+  {path: 'basket', component: BasketComponent, canActivate: [IslogGuard]},
   {path: 'Clients', component: ClientsComponent, canActivate: [ClientGuard]},
   {path: 'autorization', component: AutorizationComponent}
 
